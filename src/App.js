@@ -6,7 +6,9 @@ function App() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "all",
+  });
 
   const onSubmit = (data) => console.log(data);
 
@@ -14,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
         <h2>Create an account</h2>
         <input
           {...register("userName", {
